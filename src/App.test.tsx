@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const text = screen.getByText(/hola/i);
+  const text = screen.getByText(/Certificado de defunción internacional/i);
   expect(text).toBeInTheDocument();
 });
