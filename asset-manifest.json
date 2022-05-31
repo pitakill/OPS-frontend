@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/OPS-frontend/static/js/main.380bede8.js",
+    "main.js": "/OPS-frontend/static/js/main.8659ef0a.js",
     "static/js/787.cda612ba.chunk.js": "/OPS-frontend/static/js/787.cda612ba.chunk.js",
     "index.html": "/OPS-frontend/index.html",
-    "main.380bede8.js.map": "/OPS-frontend/static/js/main.380bede8.js.map",
+    "main.8659ef0a.js.map": "/OPS-frontend/static/js/main.8659ef0a.js.map",
     "787.cda612ba.chunk.js.map": "/OPS-frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.380bede8.js"
+    "static/js/main.8659ef0a.js"
   ]
 }
