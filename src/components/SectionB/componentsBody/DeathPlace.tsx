@@ -9,7 +9,9 @@ import SelectVariantsPlace from './SelectVariantsPlace';
                      
 const DeathPlace = () => (
   <Grid container spacing={spacingApp}>
-    <Typography component="h2">Lugar de ocurrencia de la causa externa</Typography>
+    <Grid item xs={12} sm={12} lg={12}>
+      <Typography component="h2">Lugar de ocurrencia de la causa externa</Typography>
+    </Grid>
     <Grid item xs={12} sm={12} lg={12}>
       {/* Si la manera de morir es diferente a enfermedad se activa esta parte*/}
       <SelectVariantsPlace label="Respuesta" />

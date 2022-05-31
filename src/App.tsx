@@ -5,6 +5,8 @@ import Container from '@mui/material/Container';
 
 import Main from './components/Main';
 import AdministrativeData from './components/AdministrativeData';
+import SectionA from './components/SectionA';
+import SectionB from './components/SectionB';
 
 function App() {
   return (
