@@ -4,10 +4,10 @@ import Grid from '@mui/material/Grid';
 import Header from '../Header';
 import Body from './Body';
 
-const AdministrativeData = () => (
+const SectionA = () => (
   <Grid container>
     <Grid item xs={12}>
-      <Header text="Datos administrativos" />
+      <Header text="Sección A Causas de defunción: Parte 1 y Parte 2" />
     </Grid>
     <Grid item xs={12}>
       <Body />
@@ -15,4 +15,4 @@ const AdministrativeData = () => (
   </Grid>
 );
 
-export default AdministrativeData;
+export default SectionA;
