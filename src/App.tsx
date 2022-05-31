@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 
 import Main from './components/Main';
 import AdministrativeData from './components/AdministrativeData';
+import SectionA from './components/SectionA';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
           </Grid>
           <Grid item xs={12}>
             <AdministrativeData />
+          </Grid>
+          <Grid item xs={12}>
+            <SectionA />
           </Grid>
         </Grid>
       </Container>
