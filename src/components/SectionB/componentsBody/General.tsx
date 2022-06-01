@@ -7,6 +7,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { spacingApp } from '../../../config';
 import DatePicker from '../../DatePicker';
 import SelectVariants from '../../SelectVariants';
+
                      
 const General = () => (
   <Grid container spacing={spacingApp}>
@@ -14,7 +15,7 @@ const General = () => (
       <Typography component="h4">¿Se practicó alguna cirugía en las últimas 4 semanas?</Typography>
     </Grid>
     <Grid item xs={12} sm={6} lg={6}>
-     <SelectVariants label="Respuesta" />
+      <SelectVariants label="Respuesta" />
     </Grid>
     <Grid item xs={12} sm={6}>
       <Typography component="h4">Si la respuesta es Sí, especifique la fecha de la cirugía</Typography>
@@ -28,10 +29,10 @@ const General = () => (
     </Grid>
     <Grid item xs={12} sm={6} lg={6}>
       <TextField
-        id="description-surgery"
-        label="Solo si se contesto 1 - Sí en ¿Se practicó alguna cirugía en las últimas 4 semanas?"
-        variant="standard"
-        fullWidth
+          id="description-surgery"
+          label="Solo si se contesto 1 - Sí en ¿Se practicó alguna cirugía en las últimas 4 semanas?"
+          variant="standard"
+          fullWidth
       />
       <FormHelperText>
         Se deben omitir espacios en blanco al inicio y al final de la variable. Los caracteres válidos son 0 – 9, A – Z y Ñ, en mayúsculas, sin acentos, ni caracteres especiales (Solo: "/","(",")","-",",","."). Y sin saltos de línea. Texto libre con base a lo que quiera describir el médico certificante.

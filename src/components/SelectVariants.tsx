@@ -21,14 +21,14 @@ const SelectVariants = ({ label }: SelectVariantsProps) => {
 
   return (
     <Grid>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
+      <FormControl variant="filled" sx={{ m: 1, minWidth: 80 }}>
         <InputLabel id="option-standard-label">Clave</InputLabel>
         <Select
           labelId="option-standard-label"
           id="option-standard-id"
           value={option}
           onChange={handleChange}
-          label="Option"
+          label="Clave"
         >
           <MenuItem value=""><em>Ninguno</em></MenuItem>
           <MenuItem value={1}>1</MenuItem>

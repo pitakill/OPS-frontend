@@ -21,7 +21,7 @@ const SelectVariantsPregnantWoman = ({ label }: SelectVariantsPregnantWomanProps
 
   return (
     <Grid>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
+      <FormControl variant="filled" sx={{ m: 1, minWidth: 80 }}>
         <InputLabel id="option-standard-label">Clave</InputLabel>
         <Select
           labelId="option-standard-label"

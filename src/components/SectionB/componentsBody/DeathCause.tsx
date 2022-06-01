@@ -10,7 +10,9 @@ import SelectVariantsDeath from './SelectVariantsDeath';
                      
 const DeathCause = () => (
   <Grid container spacing={spacingApp}>
-    <Typography component="h2">Manera de morir</Typography>
+    <Grid item xs={12} sm={12} lg={12}>
+      <Typography component="h2">Manera de morir</Typography>
+    </Grid>
     <Grid item xs={12} sm={12} lg={12}>
       <SelectVariantsDeath label="Respuesta" />
     </Grid>
