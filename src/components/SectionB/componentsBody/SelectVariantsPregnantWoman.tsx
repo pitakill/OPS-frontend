@@ -11,9 +11,7 @@ interface SelectVariantsPregnantWomanProps {
 }
 
 const SelectVariantsPregnantWoman = ({ label }: SelectVariantsPregnantWomanProps) => {
-  const [value, setValue] = React.useState<Date | null>(null);
-
-  const [option, setOption] = React.useState('');
+  const [option, setOption] = React.useState<string | undefined>();
 
   const handleChange = (event: SelectChangeEvent) => {
     setOption(event.target.value);
