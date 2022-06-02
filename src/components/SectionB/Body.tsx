@@ -16,15 +16,15 @@ const style = {
 const Body = () => (
   <Grid item xs={12} sx={style}>
     <Divider />
-      <General />
+    <General />
     <Divider />
-      <DeathCause />
+    <DeathCause />
     <Divider />
-      <DeathPlace />
+    <DeathPlace />
     <Divider />
-      <FetalInfantDeath />
+    <FetalInfantDeath />
     <Divider />
-    </Grid>
+  </Grid>
 );
 
 export default Body;
