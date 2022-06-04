@@ -5,6 +5,8 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Grid } from '@mui/material';
 
+import Context from '../Context';
+
 interface Item {
   value: string | number;
   text: string;
@@ -22,9 +24,13 @@ interface SelectVariantsProps {
 
 const SelectVariants = ({ sections }: SelectVariantsProps) => {
   const [option, setOption] = React.useState<string>('');
+  const { setValue } = React.useContext(Context);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setOption(event.target.value);
+    const { value } = event.target;
+
+    setOption(value);
+    setValue(value);
   };
 
   return (
