@@ -1,6 +1,6 @@
 <script>
   import { Panel, Header, Content } from "@smui-extra/accordion";
-  import LayoutGrid, { Cell, InnerGrid } from "@smui/layout-grid";
+  import { Cell, InnerGrid } from "@smui/layout-grid";
   import Textfield from "@smui/textfield";
 
   import Modal from "./Modal.svelte";
@@ -9,39 +9,14 @@
   import TimeC from "./TimeC.svelte";
   import TimeD from "./TimeD.svelte";
   import { a, b, c, d, part2, causeOfDeath, aditionalCode } from "./store";
+  import {
+    spanDevicesOneColumn,
+    spanDevicesTwoColumn,
+    spanDevicesFourColumn,
+    spanDevicesFiveColumn,
+    spanDevicesSixColumn,
+  } from "../../styles";
   import config from "../../config";
-
-  const phone = 12;
-
-  const spanDevicesOneColumn = {
-    phone,
-    tablet: 1,
-    desktop: 1,
-  };
-
-  const spanDevicesTwoColumn = {
-    phone,
-    tablet: 2,
-    desktop: 2,
-  };
-
-  const spanDevicesFourColumn = {
-    phone,
-    tablet: 4,
-    desktop: 4,
-  };
-
-  const spanDevicesFiveColumn = {
-    phone,
-    tablet: 5,
-    desktop: 5,
-  };
-
-  const spanDevicesSixColumn = {
-    phone,
-    tablet: 6,
-    desktop: 6,
-  };
 </script>
 
 <Panel>

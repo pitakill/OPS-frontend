@@ -9,6 +9,7 @@
   import Title from "./lib/Title.svelte";
   import AdministrativeData from "./lib/AdministrativeData/index.svelte";
   import SectionA from "./lib/SectionA/index.svelte";
+  import SectionB from "./lib/SectionB/index.svelte";
 
   onMount(() => {
     moment.locale("es-mx");
@@ -23,6 +24,7 @@
     <Accordion>
       <AdministrativeData />
       <SectionA />
+      <SectionB />
     </Accordion>
   </Cell>
 </LayoutGrid>

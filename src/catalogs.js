@@ -12,3 +12,9 @@ export const ageUnits = [
   { id: 5, label: "AÑOS" },
   { id: 9, label: "SE IGNORA" },
 ];
+
+export const basicResponses = [
+  { id: 1, label: "SÍ" },
+  { id: 2, label: "NO" },
+  { id: 9, label: "SE IGNORA" },
+];
