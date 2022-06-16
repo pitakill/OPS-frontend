@@ -11,12 +11,4 @@ export default class Config {
       autoBind: false,
     };
   }
-
-  static fullWidth() {
-    return "width: 100%;";
-  }
-
-  static center() {
-    return "text-align: center;";
-  }
 }

@@ -66,43 +66,41 @@
   }
 </script>
 
-<section>
-  <Button
-    on:click={() => {
-      states[id] = { ...states[id], ...template.OPEN_MODAL };
-    }}
-  >
-    <Label>Herramienta de codificación de la CIE-11</Label>
-  </Button>
-  <Dialog
-    bind:open={states[id].showModal}
-    fullscreen
-    scrimClickAction=""
-    escapeKeyAction=""
-  >
-    <Header>
-      <Title>Seleccionar Padecimientos</Title>
-    </Header>
-    <Content>
-      <input
-        type="text"
-        class="ctw-input"
-        autocomplete="off"
-        data-ctw-ino={id}
-        disabled={!states[id].loading && states[id].showButton}
-      />
-      {#if states[id].showButton}
-        <Button on:click={bindECT}>
-          <Label>
-            {#if states[id].loading}
-              Cargando...
-            {:else}
-              Cargar herramienta
-            {/if}
-          </Label>
-        </Button>
-      {/if}
-      <div class="ctw-window" data-ctw-ino={id} />
-    </Content>
-  </Dialog>
-</section>
+<Button
+  on:click={() => {
+    states[id] = { ...states[id], ...template.OPEN_MODAL };
+  }}
+>
+  <Label>Herramienta CIE-11</Label>
+</Button>
+<Dialog
+  bind:open={states[id].showModal}
+  fullscreen
+  scrimClickAction=""
+  escapeKeyAction=""
+>
+  <Header>
+    <Title>Seleccionar Padecimientos</Title>
+  </Header>
+  <Content>
+    <input
+      type="text"
+      class="ctw-input"
+      autocomplete="off"
+      data-ctw-ino={id}
+      disabled={!states[id].loading && states[id].showButton}
+    />
+    {#if states[id].showButton}
+      <Button on:click={bindECT}>
+        <Label>
+          {#if states[id].loading}
+            Cargando...
+          {:else}
+            Cargar herramienta
+          {/if}
+        </Label>
+      </Button>
+    {/if}
+    <div class="ctw-window" data-ctw-ino={id} />
+  </Content>
+</Dialog>

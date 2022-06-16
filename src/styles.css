@@ -1,0 +1,13 @@
+body {
+  background: rgb(250, 250, 250);
+  height: 100vh;
+  margin: 0;
+}
+
+.mdc-text-field__input::-webkit-calendar-picker-indicator {
+  display: initial !important;
+}
+
+.mdc-card {
+  margin-bottom: 8px;
+}
