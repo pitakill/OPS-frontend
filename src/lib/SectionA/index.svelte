@@ -1,183 +1,191 @@
 <script>
-  import { Panel, Header, Content } from "@smui-extra/accordion";
-  import LayoutGrid, { Cell, InnerGrid } from "@smui/layout-grid";
+  import Card, { Content } from "@smui/card";
+  import { Cell, InnerGrid } from "@smui/layout-grid";
   import Textfield from "@smui/textfield";
 
+  import Select from "../Select.svelte";
+  import InputNumber from "../InputNumber.svelte";
   import Modal from "./Modal.svelte";
-  import TimeA from "./TimeA.svelte";
-  import TimeB from "./TimeB.svelte";
-  import TimeC from "./TimeC.svelte";
-  import TimeD from "./TimeD.svelte";
-  import { a, b, c, d, part2, causeOfDeath, aditionalCode } from "./store";
-  import config from "../../config";
-
-  const phone = 12;
-
-  const spanDevicesOneColumn = {
-    phone,
-    tablet: 1,
-    desktop: 1,
-  };
-
-  const spanDevicesTwoColumn = {
-    phone,
-    tablet: 2,
-    desktop: 2,
-  };
-
-  const spanDevicesFourColumn = {
-    phone,
-    tablet: 4,
-    desktop: 4,
-  };
-
-  const spanDevicesFiveColumn = {
-    phone,
-    tablet: 5,
-    desktop: 5,
-  };
-
-  const spanDevicesSixColumn = {
-    phone,
-    tablet: 6,
-    desktop: 6,
-  };
+  import { ageUnits } from "../../catalogs";
+  import {
+    a,
+    b,
+    c,
+    d,
+    part2,
+    causeOfDeath,
+    aditionalCode,
+    timeA,
+    timeUnitA,
+    timeB,
+    timeUnitB,
+    timeC,
+    timeUnitC,
+    timeD,
+    timeUnitD,
+  } from "./store";
 </script>
 
-<Panel>
-  <Header>Sección A Causas de defunción: Parte 1 y Parte 2</Header>
-  <Content>
+<Card>
+  <Content class="mdc-typography--body2">
     <InnerGrid>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <h4>1</h4>
+      <Cell span={12}>
+        <h2 class="mdc-typography--headline6" style="margin: 0;">
+          Sección A Causas de defunción: Parte 1 y Parte 2
+        </h2>
       </Cell>
-      <Cell style={config.center()} spanDevices={spanDevicesFourColumn}
-        >Causas de la defunción</Cell
-      >
-      <Cell style={config.center()} spanDevices={spanDevicesFourColumn}>
-        Tiempo desde el inicio hasta la muerte
+      <Cell span={12}>
+        <Card>
+          <Content>
+            <InnerGrid>
+              <Cell span={12}>
+                <h3 class="mdc-typography--headline6" style="margin: 0;">
+                  Parte 1: Causa de la muerte
+                </h3>
+              </Cell>
+              <Cell span={9}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$a.selectedText}
+                  label="Padecimiento directo"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$a.code}
+                  label="Código"
+                  disabled
+                />
+              </Cell>
+              <Cell span={3}>
+                <InputNumber
+                  label="Tiempo (número)"
+                  value={timeA}
+                  unit={timeUnitA}
+                />
+              </Cell>
+              <Cell span={4}>
+                <Select label="Tiempo" items={ageUnits} value={timeUnitA} />
+              </Cell>
+              <Cell span={12}>
+                <Modal id={0} />
+              </Cell>
+              <Cell span={9}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$b.selectedText}
+                  label="Debido a"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$b.code}
+                  label="Código"
+                  disabled
+                />
+              </Cell>
+              <Cell span={3}>
+                <InputNumber
+                  label="Tiempo (número)"
+                  value={timeB}
+                  unit={timeUnitB}
+                />
+              </Cell>
+              <Cell span={4}>
+                <Select label="Tiempo" items={ageUnits} value={timeUnitB} />
+              </Cell>
+              <Cell span={12}>
+                <Modal id={1} />
+              </Cell>
+              <Cell span={9}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$c.selectedText}
+                  label="Debido a"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$c.code}
+                  label="Código"
+                  disabled
+                />
+              </Cell>
+              <Cell span={3}>
+                <InputNumber
+                  label="Tiempo (número)"
+                  value={timeC}
+                  unit={timeUnitC}
+                />
+              </Cell>
+              <Cell span={4}>
+                <Select label="Tiempo" items={ageUnits} value={timeUnitC} />
+              </Cell>
+              <Cell span={12}>
+                <Modal id={2} />
+              </Cell>
+              <Cell span={9}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$d.selectedText}
+                  label="Debido a"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$d.code}
+                  label="Código"
+                  disabled
+                />
+              </Cell>
+              <Cell span={3}>
+                <InputNumber
+                  label="Tiempo (número)"
+                  value={timeD}
+                  unit={timeUnitD}
+                />
+              </Cell>
+              <Cell span={4}>
+                <Select label="Tiempo" items={ageUnits} value={timeUnitD} />
+              </Cell>
+              <Cell span={12}>
+                <Modal id={3} />
+              </Cell>
+            </InnerGrid>
+          </Content>
+        </Card>
       </Cell>
-      <Cell style={config.center()} spanDevices={spanDevicesOneColumn}
-        >Códigos CIE-11</Cell
-      >
-      <Cell spanDevices={spanDevicesTwoColumn} />
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <h4>
-          Anote la enfermedad o condición que condujo directamente a la muerte
-        </h4>
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$a.selectedText}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <TimeA />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <Textfield style={config.fullWidth()} bind:value={$a.code} disabled />
-      </Cell>
-      <Cell spanDevices={spanDevicesTwoColumn}>
-        <Modal id={0} />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <h4>Informe la cadena de eventos</h4>
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$b.selectedText}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <TimeB />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <Textfield style={config.fullWidth()} bind:value={$b.code} disabled />
-      </Cell>
-      <Cell spanDevices={spanDevicesTwoColumn}>
-        <Modal id={1} />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <h4>Informe la cadena de eventos</h4>
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$c.selectedText}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <TimeC />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <Textfield style={config.fullWidth()} bind:value={$c.code} disabled />
-      </Cell>
-      <Cell spanDevices={spanDevicesTwoColumn}>
-        <Modal id={2} />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <h4>
-          Anote la causa básica de defunción de la línea más baja utilizada
-        </h4>
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$d.selectedText}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <TimeD />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <Textfield style={config.fullWidth()} bind:value={$d.code} disabled />
-      </Cell>
-      <Cell spanDevices={spanDevicesTwoColumn}>
-        <Modal id={3} />
-      </Cell>
-      <Cell spanDevices={spanDevicesFourColumn}>
-        <h4>
-          2 Otras condiciones importantes que contribuyen a la muerte (los
-          tiempos pueden incluirse entre paréntesis después de cada afección)
-        </h4>
-      </Cell>
-      <Cell spanDevices={spanDevicesFiveColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$part2.selectedText}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesOneColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$part2.code}
-          disabled
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesTwoColumn}>
-        <Modal id={4} />
-      </Cell>
-      <Cell spanDevices={spanDevicesSixColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$causeOfDeath}
-          label="Causa básica de defunción"
-        />
-      </Cell>
-      <Cell spanDevices={spanDevicesSixColumn}>
-        <Textfield
-          style={config.fullWidth()}
-          bind:value={$aditionalCode}
-          label="Código adicional"
-        />
+      <Cell span={12}>
+        <Card>
+          <Content>
+            <InnerGrid>
+              <Cell span={12}>
+                <h3 class="mdc-typography--headline6" style="margin: 0;">
+                  Parte 2
+                </h3>
+              </Cell>
+              <Cell span={9}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$causeOfDeath}
+                  label="Causa básica de defunción"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$aditionalCode}
+                  label="Código"
+                />
+              </Cell>
+            </InnerGrid>
+          </Content>
+        </Card>
       </Cell>
     </InnerGrid>
   </Content>
-</Panel>
+</Card>
