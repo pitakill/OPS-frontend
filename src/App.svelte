@@ -10,6 +10,7 @@
 
   import AdministrativeData from "./lib/AdministrativeData/index.svelte";
   import SectionA from "./lib/SectionA/index.svelte";
+  import SectionB from "./lib/SectionB/index.svelte";
 
   import "./styles.css";
 
@@ -31,6 +32,7 @@
       <Content>
         <AdministrativeData />
         <SectionA />
+        <SectionB />
       </Content>
     </Card>
   </Cell>

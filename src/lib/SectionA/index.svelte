@@ -6,9 +6,7 @@
   import Select from "../Select.svelte";
   import InputNumber from "../InputNumber.svelte";
   import Modal from "./Modal.svelte";
-  import TimeB from "./TimeB.svelte";
-  import TimeC from "./TimeC.svelte";
-  import TimeD from "./TimeD.svelte";
+  import { ageUnits } from "../../catalogs";
   import {
     a,
     b,
@@ -26,7 +24,6 @@
     timeD,
     timeUnitD,
   } from "./store";
-  import { ageUnits } from "../../catalogs";
 </script>
 
 <Card>
