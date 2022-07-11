@@ -12,6 +12,8 @@
   import SectionA from "./lib/SectionA/index.svelte";
   import SectionB from "./lib/SectionB/index.svelte";
 
+  import mexicanGobernment from "./assets/gobierno-de-mexico.svg";
+  import ops from "./assets/OPS-es.png";
   import "./styles.css";
 
   onMount(() => {
@@ -22,7 +24,9 @@
 <TopAppBar variant="static">
   <Row>
     <Section>
+      <img class="mexican" src={mexicanGobernment} />
       <Title>Certificado de defunción internacional</Title>
+      <img class="ops" src={ops} />
     </Section>
   </Row>
 </TopAppBar>
@@ -37,3 +41,13 @@
     </Card>
   </Cell>
 </LayoutGrid>
+
+<style>
+  img.mexican {
+    width: 150px;
+  }
+
+  img.ops {
+    widht: 500px;
+  }
+</style>

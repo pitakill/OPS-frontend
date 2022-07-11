@@ -4,6 +4,18 @@ body {
   margin: 0;
 }
 
+.mdc-top-app-bar {
+  background-color: #0c231e;
+}
+
+.mdc-top-app-bar__row {
+  height: auto !important;
+}
+
+.mdc-top-app-bar__section--align-start {
+  justify-content: space-between;
+}
+
 .mdc-text-field__input::-webkit-calendar-picker-indicator {
   display: initial !important;
 }
