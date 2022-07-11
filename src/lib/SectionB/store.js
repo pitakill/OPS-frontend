@@ -22,7 +22,14 @@ function stringStore() {
     subscribe,
     set: (id) =>
       update(() =>
-        id.replace(/([^0-9a-zA-ZñÑ\/\(\)\-\,\.\s])/g, "").toUpperCase()
+        id
+          .replace(/[áÁ]/, "A")
+          .replace(/[éÉ]/, "E")
+          .replace(/[íÍ]/, "I")
+          .replace(/[óÓ]/, "O")
+          .replace(/[úÚ]/, "U")
+          .replace(/([^0-9a-zA-ZñÑ\/\(\)\-\,\.\s])/g, "")
+          .toUpperCase()
       ),
   };
 }

@@ -23,7 +23,19 @@
     timeUnitC,
     timeD,
     timeUnitD,
+    timePart2,
+    timeUnitPart2,
   } from "./store";
+
+  let disabled = true;
+
+  $: {
+    if ($a.selectedText !== "") {
+      disabled = false;
+    } else {
+      disabled = true;
+    }
+  }
 </script>
 
 <Card>
@@ -43,14 +55,14 @@
                   Parte 1: Causa de la muerte
                 </h3>
               </Cell>
-              <Cell span={9}>
+              <Cell span={4}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$a.selectedText}
-                  label="Padecimiento directo"
+                  label=""
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$a.code}
@@ -58,27 +70,28 @@
                   disabled
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <InputNumber
                   label="Tiempo (número)"
                   value={timeA}
                   unit={timeUnitA}
                 />
               </Cell>
-              <Cell span={4}>
+              <Cell span={2}>
                 <Select label="Tiempo" items={ageUnits} value={timeUnitA} />
               </Cell>
-              <Cell span={12}>
+              <Cell span={2}>
                 <Modal id={0} />
               </Cell>
-              <Cell span={9}>
+              <Cell span={4}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$b.selectedText}
                   label="Debido a"
+                  {disabled}
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$b.code}
@@ -86,27 +99,34 @@
                   disabled
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <InputNumber
                   label="Tiempo (número)"
                   value={timeB}
                   unit={timeUnitB}
+                  {disabled}
                 />
               </Cell>
+              <Cell span={2}>
+                <Select
+                  label="Tiempo"
+                  items={ageUnits}
+                  value={timeUnitB}
+                  {disabled}
+                />
+              </Cell>
+              <Cell span={2}>
+                <Modal id={1} {disabled} />
+              </Cell>
               <Cell span={4}>
-                <Select label="Tiempo" items={ageUnits} value={timeUnitB} />
-              </Cell>
-              <Cell span={12}>
-                <Modal id={1} />
-              </Cell>
-              <Cell span={9}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$c.selectedText}
                   label="Debido a"
+                  {disabled}
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$c.code}
@@ -114,27 +134,34 @@
                   disabled
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <InputNumber
                   label="Tiempo (número)"
                   value={timeC}
                   unit={timeUnitC}
+                  {disabled}
                 />
               </Cell>
+              <Cell span={2}>
+                <Select
+                  label="Tiempo"
+                  items={ageUnits}
+                  value={timeUnitC}
+                  {disabled}
+                />
+              </Cell>
+              <Cell span={2}>
+                <Modal id={2} {disabled} />
+              </Cell>
               <Cell span={4}>
-                <Select label="Tiempo" items={ageUnits} value={timeUnitC} />
-              </Cell>
-              <Cell span={12}>
-                <Modal id={2} />
-              </Cell>
-              <Cell span={9}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$d.selectedText}
                   label="Debido a"
+                  {disabled}
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <Textfield
                   style="width: 100%;"
                   bind:value={$d.code}
@@ -142,18 +169,24 @@
                   disabled
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <InputNumber
                   label="Tiempo (número)"
                   value={timeD}
                   unit={timeUnitD}
+                  {disabled}
                 />
               </Cell>
-              <Cell span={4}>
-                <Select label="Tiempo" items={ageUnits} value={timeUnitD} />
+              <Cell span={2}>
+                <Select
+                  label="Tiempo"
+                  items={ageUnits}
+                  value={timeUnitD}
+                  {disabled}
+                />
               </Cell>
-              <Cell span={12}>
-                <Modal id={3} />
+              <Cell span={2}>
+                <Modal id={3} {disabled} />
               </Cell>
             </InnerGrid>
           </Content>
@@ -167,6 +200,34 @@
                 <h3 class="mdc-typography--headline6" style="margin: 0;">
                   Parte 2
                 </h3>
+              </Cell>
+              <Cell span={4}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$part2.selectedText}
+                  label=""
+                />
+              </Cell>
+              <Cell span={2}>
+                <Textfield
+                  style="width: 100%;"
+                  bind:value={$part2.code}
+                  label="Código"
+                  disabled
+                />
+              </Cell>
+              <Cell span={2}>
+                <InputNumber
+                  label="Tiempo (número)"
+                  value={timePart2}
+                  unit={timeUnitPart2}
+                />
+              </Cell>
+              <Cell span={2}>
+                <Select label="Tiempo" items={ageUnits} value={timeUnitPart2} />
+              </Cell>
+              <Cell span={2}>
+                <Modal id={4} />
               </Cell>
               <Cell span={9}>
                 <Textfield

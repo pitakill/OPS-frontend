@@ -22,6 +22,21 @@
     variable1,
     variable2,
   } from "./store";
+
+  $: {
+    if ($birthdate !== null && $deathdate !== null) {
+      const bd = moment($birthdate);
+      const dd = moment($deathdate);
+
+      const years = parseInt(moment.duration(dd.diff(bd)).asYears(), 10);
+
+      // Set for only for years
+      if (years > 0) {
+        age.set(years);
+        ageUnit.set({ id: 5 });
+      }
+    }
+  }
 </script>
 
 <Card>
@@ -33,7 +48,12 @@
         </h2>
       </Cell>
       <Cell span={12}>
-        <Textfield bind:value={$id} label="ID" style="width: 100%;" />
+        <Textfield
+          bind:value={$id}
+          label="ID"
+          type="number"
+          style="width: 100%;"
+        />
       </Cell>
       <Cell span={4}>
         <Select label="Sexo" items={genders} value={gender} />
