@@ -14,6 +14,8 @@ const timeC = writable(null);
 const timeUnitC = writable(null);
 const timeD = writable(null);
 const timeUnitD = writable(null);
+const timePart2 = writable(null);
+const timeUnitPart2 = writable(null);
 
 function stringStore() {
   const { subscribe, update } = writable("");
@@ -21,7 +23,16 @@ function stringStore() {
   return {
     subscribe,
     set: (id) =>
-      update(() => id.replace(/([^0-9a-zA-ZñÑ&\/\s])/g, "").toUpperCase()),
+      update(() =>
+        id
+          .replace(/[áÁ]/, "A")
+          .replace(/[éÉ]/, "E")
+          .replace(/[íÍ]/, "I")
+          .replace(/[óÓ]/, "O")
+          .replace(/[úÚ]/, "U")
+          .replace(/([^0-9a-zA-ZñÑ&\/\s])/g, "")
+          .toUpperCase()
+      ),
   };
 }
 
@@ -42,6 +53,8 @@ export {
   timeUnitC,
   timeD,
   timeUnitD,
+  timePart2,
+  timeUnitPart2,
   causeOfDeath,
   aditionalCode,
 };

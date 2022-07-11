@@ -29,6 +29,90 @@
     womanPregnantCondition as womanPregnantConditionValue,
     pregnancyContributionToDeath,
   } from "./store";
+
+  let disabledSurgery = true;
+  $: {
+    if ($surgery?.id === 1) {
+      disabledSurgery = false;
+    } else {
+      disabledSurgery = true;
+    }
+  }
+
+  let disabledAutopsy = true;
+  $: {
+    if ($autopsy?.id === 1) {
+      disabledAutopsy = false;
+    } else {
+      disabledAutopsy = true;
+    }
+  }
+
+  let disabledMannerOfDeath = true;
+  $: {
+    if ($mannerOfDeathValue?.id !== 1) {
+      disabledMannerOfDeath = false;
+    } else {
+      disabledMannerOfDeath = true;
+    }
+
+    if ($mannerOfDeathValue === undefined) {
+      disabledMannerOfDeath = true;
+    }
+  }
+
+  let disabledPlaceOfDeathOther = true;
+  $: {
+    if ($placeOfDeathValue?.id === 9) {
+      disabledPlaceOfDeathOther = false;
+    } else {
+      disabledPlaceOfDeathOther = true;
+    }
+
+    if ($placeOfDeathValue === undefined) {
+      disabledPlaceOfDeathOther = true;
+    }
+  }
+
+  let disabledHoursAlive = true;
+  $: {
+    if ($hoursAlive <= 0 && !disabledHoursAlive) {
+      hoursAlive.set(0);
+    }
+
+    if ($hoursAlive >= 24) {
+      hoursAlive.set(24);
+    }
+
+    if ($multiplePregnancy?.id === 1 || $stillborn?.id === 1) {
+      disabledHoursAlive = false;
+    } else {
+      disabledHoursAlive = true;
+    }
+  }
+
+  $: {
+    if ($fullWeeksOfPregnancy <= 0 && !disabledHoursAlive) {
+      fullWeeksOfPregnancy.set(0);
+    }
+
+    if ($motherAgeInYears <= 0) {
+      motherAgeInYears.set(0);
+    }
+  }
+
+  let disabledPregnancyContributionToDeath = true;
+  $: {
+    if ($womanPregnantConditionValue?.id === 8) {
+      disabledPregnancyContributionToDeath = false;
+    } else {
+      disabledPregnancyContributionToDeath = true;
+    }
+
+    if ($womanPregnantConditionValue === undefined) {
+      disabledPregnancyContributionToDeath = true;
+    }
+  }
 </script>
 
 <Card>
@@ -59,6 +143,7 @@
                 <Date
                   value={surgeryDate}
                   label="Si la respuesta es sí, especifique la fecha de la cirugía"
+                  disabled={disabledSurgery}
                 />
               </Cell>
               <Cell span={12}>
@@ -66,6 +151,7 @@
                   label="Si la respuesta es Sí, especifique el motivo de la cirugía (enfermedad o afección)"
                   bind:value={$surgeryReason}
                   style="width:100%;"
+                  disabled={disabledSurgery}
                 />
               </Cell>
               <Cell span={12}>
@@ -80,6 +166,7 @@
                   label="Si la respuesta es Sí, ¿fueron los hallazgos utilizados en la certificación?"
                   items={basicResponses}
                   value={usedFoundings}
+                  disabled={disabledAutopsy}
                 />
               </Cell>
             </InnerGrid>
@@ -100,10 +187,15 @@
                   label="Manera de morir"
                   items={mannerOfDeath}
                   value={mannerOfDeathValue}
+                  fixIds
                 />
               </Cell>
               <Cell span={12}>
-                <Date value={surgeryDate} label="Fecha de la lesión" />
+                <Date
+                  value={surgeryDate}
+                  label="Fecha de la lesión"
+                  disabled={disabledMannerOfDeath}
+                />
               </Cell>
               <Cell span={12}>
                 <h4 class="mdc-typography--subtitle2" style="margin: 0;">
@@ -115,6 +207,7 @@
                   label="Describa como se produjo la causa externa (¿hay intoxicación?, indique sustancia)"
                   bind:value={$surgeryReason}
                   style="width:100%;"
+                  disabled={disabledMannerOfDeath}
                 />
               </Cell>
               <Cell span={12}>
@@ -122,6 +215,8 @@
                   label="Lugar de ocurrencia de la causa externa"
                   items={placeOfDeath}
                   value={placeOfDeathValue}
+                  fixIds
+                  disabled={disabledMannerOfDeath}
                 />
               </Cell>
               <Cell span={12}>
@@ -129,6 +224,7 @@
                   label="Si fue otro lugar (especifique)"
                   bind:value={$placeOfDeathOther}
                   style="width:100%;"
+                  disabled={disabledPlaceOfDeathOther}
                 />
               </Cell>
             </InnerGrid>
@@ -159,18 +255,12 @@
                 />
               </Cell>
               <Cell span={12}>
-                <h4 class="mdc-typography--subtitle2" style="margin: 0;">
-                  Si es causa externa o envenenamiento
-                </h4>
-              </Cell>
-              <Cell span={12}>
                 <Textfield
                   label="Si fallece dentro de las 24 hrs, número de horas sobrevividas"
                   bind:value={$hoursAlive}
                   type="number"
-                  min="0"
-                  max="24"
                   style="width:100%;"
+                  disabled={disabledHoursAlive}
                 />
               </Cell>
               <Cell span={12}>
@@ -179,6 +269,7 @@
                   bind:value={$weightInGrams}
                   type="number"
                   style="width:100%;"
+                  disabled={disabledHoursAlive}
                 />
               </Cell>
               <Cell span={12}>
@@ -187,6 +278,7 @@
                   bind:value={$fullWeeksOfPregnancy}
                   type="number"
                   style="width:100%;"
+                  disabled={disabledHoursAlive}
                 />
               </Cell>
               <Cell span={12}>
@@ -222,6 +314,7 @@
                   label="¿El embarazo contribuyó a la muerte?"
                   items={basicResponses}
                   value={pregnancyContributionToDeath}
+                  disabled={disabledPregnancyContributionToDeath}
                 />
               </Cell>
             </InnerGrid>

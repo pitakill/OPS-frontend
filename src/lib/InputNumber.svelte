@@ -2,6 +2,7 @@
   export let label;
   export let value;
   export let unit;
+  export let disabled = false;
 
   import Tooltip, { Wrapper } from "@smui/tooltip";
   import Textfield from "@smui/textfield";
@@ -54,7 +55,13 @@
 </script>
 
 <Wrapper>
-  <Textfield bind:value={$value} {label} type="number" style="width: 100%;" />
+  <Textfield
+    bind:value={$value}
+    {label}
+    type="number"
+    {disabled}
+    style="width: 100%;"
+  />
   {#if helperText !== undefined}
     <Tooltip>{helperText}</Tooltip>
   {/if}

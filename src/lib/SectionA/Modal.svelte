@@ -1,10 +1,11 @@
 <script>
   export let id;
+  export let disabled = false;
 
   import { onMount } from "svelte";
   import Button, { Label } from "@smui/button";
   import Dialog, { Header, Content, Title } from "@smui/dialog";
-  import { useMachine } from "@xstate/svelte";
+  import IconButton from "@smui/icon-button";
 
   import { a, b, c, d, part2 } from "./store";
   import config from "../../config";
@@ -42,6 +43,11 @@
     SELECT_ILLNESS: {
       showModal: false,
     },
+    CLOSE_MODAL: {
+      loading: false,
+      showButton: false,
+      showModal: false,
+    },
   };
 
   const selectedEntityFunction = (entity) => {
@@ -70,6 +76,7 @@
   on:click={() => {
     states[id] = { ...states[id], ...template.OPEN_MODAL };
   }}
+  {disabled}
 >
   <Label>Herramienta CIE-11</Label>
 </Button>
@@ -81,6 +88,14 @@
 >
   <Header>
     <Title>Seleccionar Padecimientos</Title>
+    <IconButton
+      class="material-icons"
+      on:click={() => {
+        states[id] = { ...states[id], ...template.CLOSE_MODAL };
+      }}
+    >
+      close
+    </IconButton>
   </Header>
   <Content>
     <input

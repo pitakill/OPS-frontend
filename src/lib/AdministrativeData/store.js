@@ -5,12 +5,22 @@ function stringStore() {
 
   return {
     subscribe,
+    update,
     set: (id) =>
-      update(() => id.replace(/([^0-9a-zA-ZñÑ\s])/g, "").toUpperCase()),
+      update(() =>
+        id
+          .replace(/[áÁ]/, "A")
+          .replace(/[éÉ]/, "E")
+          .replace(/[íÍ]/, "I")
+          .replace(/[óÓ]/, "O")
+          .replace(/[úÚ]/, "U")
+          .replace(/([^0-9a-zA-ZñÑ\s])/g, "")
+          .toUpperCase()
+      ),
   };
 }
 
-const id = stringStore();
+const id = writable(null);
 const gender = writable(null);
 const age = writable(null);
 const ageUnit = writable(null);

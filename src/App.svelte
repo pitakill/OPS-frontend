@@ -27,7 +27,7 @@
   </Row>
 </TopAppBar>
 <LayoutGrid align="center" fixedColumnWidth>
-  <Cell spanDevices={{ phone: 12, tablet: 12, desktop: 6 }}>
+  <Cell spanDevices={{ phone: 12, tablet: 12, desktop: 12 }}>
     <Card>
       <Content>
         <AdministrativeData />
