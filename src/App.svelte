@@ -12,7 +12,8 @@
   import SectionA from "./lib/SectionA/index.svelte";
   import SectionB from "./lib/SectionB/index.svelte";
 
-  import mexicanGobernment from "./assets/gobierno-de-mexico.svg";
+  import mexicanGobernment from "./assets/secretaria-de-salud.jpg";
+  import vitalStrategies from "./assets/vital-strategies.jpg";
   import ops from "./assets/OPS-es.png";
   import "./styles.css";
 
@@ -24,9 +25,18 @@
 <TopAppBar variant="static">
   <Row>
     <Section>
-      <img class="mexican" src={mexicanGobernment} />
+      <img
+        class="mexican"
+        src={mexicanGobernment}
+        alt="Logo Gobierno de México"
+      />
       <Title>Certificado de defunción internacional</Title>
-      <img class="ops" src={ops} />
+      <img class="vital" src={vitalStrategies} alt="Logo de Vital Strategies" />
+      <img
+        class="ops"
+        src={ops}
+        alt="Logo de la Organización Panamericana de la Salud"
+      />
     </Section>
   </Row>
 </TopAppBar>
@@ -48,6 +58,10 @@
   }
 
   img.ops {
-    widht: 500px;
+    width: 500px;
+  }
+
+  img.vital {
+    width: 200px;
   }
 </style>
