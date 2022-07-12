@@ -9,12 +9,14 @@ function stringStore() {
     set: (id) =>
       update(() =>
         id
-          .replace(/[áÁ]/, "A")
-          .replace(/[éÉ]/, "E")
-          .replace(/[íÍ]/, "I")
-          .replace(/[óÓ]/, "O")
-          .replace(/[úÚ]/, "U")
-          .replace(/([^0-9a-zA-ZñÑ\s])/g, "")
+          .replace(/[áÁ]/g, "A")
+          .replace(/[éÉ]/g, "E")
+          .replace(/[íÍ]/g, "I")
+          .replace(/[óÓ]/g, "O")
+          .replace(/[úÚ]/g, "U")
+          .replace(/[ñÑ]/g, "")
+          .replace(/[a-zA-Z]/g, "")
+          .replace(/[^0-9]/g, "")
           .toUpperCase()
       ),
   };

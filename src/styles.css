@@ -5,7 +5,8 @@ body {
 }
 
 .mdc-top-app-bar {
-  background-color: #0c231e;
+  background-color: #fff;
+  color: #000;
 }
 
 .mdc-top-app-bar__row {
@@ -22,4 +23,8 @@ body {
 
 .mdc-card {
   margin-bottom: 8px;
+}
+
+.chopped {
+  display: none !important;
 }
